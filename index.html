@@ -43,8 +43,10 @@ layout: null
   <style>
     body { font-family: 'Inter', system-ui, sans-serif; background: #ffffff; color: #37352f; }
     .hl:hover { background: #f1f0ef; }
-    .ch { transition: box-shadow .15s ease, transform .15s ease; }
-    .ch:hover { box-shadow: 0 4px 20px rgba(0,0,0,.08); transform: translateY(-2px); }
+    .ch { transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease; }
+    .ch:hover { box-shadow: 0 14px 34px rgba(13,27,54,.12); transform: translateY(-4px); border-color: #cdd8e6; }
+    /* short teal accent rule above section headings */
+    .accent-rule { height: 4px; width: 40px; border-radius: 9999px; background: #0f7b6c; }
     .pill { display:inline-flex; align-items:center; gap:6px; border:1px solid #e3e2e0; border-radius:9999px; padding:6px 14px; font-size:13px; color:#37352f; text-decoration:none; background:#fff; transition:background .15s; }
     .pill:hover { background:#f1f0ef; }
     .tab-btn { padding:6px 14px; font-size:13px; font-weight:500; border-radius:6px; cursor:pointer; transition:background .15s, color .15s; color:#787774; }
@@ -87,25 +89,22 @@ layout: null
   </div>
 
   <!-- ─── HERO ─── -->
-  <div class="max-w-5xl mx-auto px-5 pt-[70px] pb-[60px]">
+  <section class="bg-gradient-to-b from-white to-[#f4f7fb] border-b border-[#e3e2e0]">
+  <div class="max-w-5xl mx-auto px-5 pt-16 pb-16 md:pt-24 md:pb-20 flex flex-col items-center text-center">
 
-    <!-- Avatar + greeting -->
-    <div class="flex items-center gap-8 mb-5">
-      <img src="/assets/images/logo.png"
-           alt="Hampton Abbott"
-           class="w-[115px] h-[115px] object-contain flex-shrink-0" />
-      <div>
-        <h1 class="font-black text-[#37352f] leading-tight" style="font-size: 42px;">
-          Hampton Abbott
-        </h1>
-        <p class="text-[#787774] mt-2" style="font-size: 19px;">
-          Sports Analytics &amp; Data Science — Turning data into decisions
-        </p>
-      </div>
-    </div>
+    <!-- Logo + name + tagline -->
+    <img src="/assets/images/logo.png"
+         alt="Hampton Abbott"
+         class="w-28 h-28 md:w-32 md:h-32 object-contain mb-6" />
+    <h1 class="font-black text-[#37352f] tracking-tight leading-[1.05] text-4xl md:text-6xl">
+      Hampton Abbott
+    </h1>
+    <p class="text-[#787774] mt-4 text-lg md:text-xl max-w-2xl">
+      Sports Analytics &amp; Data Science — Turning data into decisions
+    </p>
 
     <!-- Link pills -->
-    <div class="flex flex-wrap gap-2 mt-6">
+    <div class="flex flex-wrap justify-center gap-2 mt-8 max-w-2xl">
       <a href="https://www.linkedin.com/in/hamptonabbott" target="_blank" rel="noopener" class="pill">
         <!-- LinkedIn icon -->
         <svg class="w-3.5 h-3.5 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
@@ -133,107 +132,115 @@ layout: null
       </a>
     </div>
   </div>
+  </section>
 
-  <!-- ─── ABOUT ME (full-width) ─── -->
-  <div class="max-w-5xl mx-auto px-5 pb-12">
-    <h2 class="text-lg font-bold text-[#37352f] mb-4">About me</h2>
-    <div class="max-w-3xl space-y-4">
-      <p class="text-[15px] text-[#787774] leading-relaxed">
+  <!-- ─── ABOUT ME (white band) ─── -->
+  <section class="bg-white">
+  <div class="max-w-5xl mx-auto px-5 py-16 md:py-20">
+    <div class="accent-rule mb-4"></div>
+    <h2 class="text-2xl md:text-3xl font-bold text-[#37352f] mb-5">About me</h2>
+    <div class="max-w-[680px] space-y-4">
+      <p class="text-[15px] md:text-base text-[#787774] leading-relaxed">
         High-achieving Sports Analytics student and Chancellor's List honoree (4.0 GPA) at UNC Charlotte,
         with a decade as a business operator and hands-on experience in data analysis, predictive modeling,
         and customer analytics. I turn data into decisions — and build the tools that act on it.
       </p>
-      <p class="text-[15px] text-[#787774] leading-relaxed">
+      <p class="text-[15px] md:text-base text-[#787774] leading-relaxed">
         I am a Sports Analytics major at UNC Charlotte with a deep-rooted passion for the statistics that drive the games
         we love. While my technical focus is on optimizing performance and strategy in sports, I am equally driven by a
         passion for digital privacy. I believe that as we collect more data — on the field and off — we have a growing
         responsibility to handle that information ethically.
       </p>
-      <p class="text-[15px] text-[#787774] leading-relaxed">
+      <p class="text-[15px] md:text-base text-[#787774] leading-relaxed">
         My goal is to merge these interests, exploring how high-level analytics can coexist with robust data privacy standards.
         10+ years of business experience applying analytics across fleet management, e-commerce, events, and residential services.
       </p>
     </div>
   </div>
+  </section>
 
-  <!-- ─── PROJECTS (full-width responsive grid) ─── -->
-  <div class="max-w-5xl mx-auto px-5 pb-16">
-    <h2 class="text-lg font-bold text-[#37352f] mb-4">Projects</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+  <!-- ─── PROJECTS (light gray band) ─── -->
+  <section class="bg-[#f7f7f6] border-y border-[#e3e2e0]">
+  <div class="max-w-5xl mx-auto px-5 py-16 md:py-20">
+    <div class="accent-rule mb-4"></div>
+    <h2 class="text-2xl md:text-3xl font-bold text-[#37352f] mb-7">Projects</h2>
 
-          <!-- Teamora (featured live app) -->
-          <div class="col-span-1 sm:col-span-2 lg:col-span-4 bg-[#f6f6f5] border border-[#e3e2e0] rounded-xl overflow-hidden">
-            <a href="https://teamora.streamlit.app" target="_blank" rel="noopener" class="block overflow-hidden bg-[#f4f5f7] group">
-              <img src="/assets/images/teamora.png" alt="Screenshot of the Teamora web app results page showing balanced student team assignments and team-quality metrics." class="w-full max-h-[300px] object-cover object-top block group-hover:scale-105 transition-transform duration-300">
-            </a>
-            <div class="px-5 py-4 border-t border-[#e3e2e0] bg-white">
-              <span class="inline-block text-[10px] font-semibold uppercase tracking-wide text-[#0a7d2c] bg-[#e6f4ea] px-2 py-0.5 rounded mb-2">Featured · Live App</span>
-              <div class="text-base font-semibold text-[#37352f]">Teamora — Student Team-Formation Web App</div>
-              <div class="text-[11px] text-[#787774] mt-0.5 mb-2">Python · Streamlit · scikit-learn · scipy</div>
-              <p class="text-[13px] text-[#787774] leading-relaxed mb-3">
-                A live web app that helps instructors form balanced student teams — built from my own research,
-                with four matching models and a privacy-first design.
-              </p>
-              <div class="flex gap-2">
-                <a href="https://teamora.streamlit.app" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-[12px] font-medium text-white bg-[#37352f] px-3 py-1.5 rounded-md hover:bg-[#000] transition-colors">Live demo ↗</a>
-                <a href="https://github.com/HPAuncc/teammate-matcher-app" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-[12px] font-medium text-[#37352f] bg-white border border-[#e3e2e0] px-3 py-1.5 rounded-md hover:bg-[#f1f0ef] transition-colors">Code ↗</a>
-              </div>
-            </div>
-          </div>
+    <!-- Teamora (featured live app) -->
+    <div class="bg-[#f6f6f5] border border-[#e3e2e0] rounded-2xl overflow-hidden shadow-sm mb-5">
+      <a href="https://teamora.streamlit.app" target="_blank" rel="noopener" class="block overflow-hidden bg-[#f4f5f7] group">
+        <img src="/assets/images/teamora.png" alt="Screenshot of the Teamora web app results page showing balanced student team assignments and team-quality metrics." class="w-full max-h-[300px] object-cover object-top block group-hover:scale-105 transition-transform duration-300">
+      </a>
+      <div class="px-5 py-4 border-t border-[#e3e2e0] bg-white">
+        <span class="inline-block text-[10px] font-semibold uppercase tracking-wide text-[#0a7d2c] bg-[#e6f4ea] px-2 py-0.5 rounded mb-2">Featured · Live App</span>
+        <div class="text-base font-semibold text-[#37352f]">Teamora — Student Team-Formation Web App</div>
+        <div class="text-[11px] text-[#787774] mt-0.5 mb-2">Python · Streamlit · scikit-learn · scipy</div>
+        <p class="text-[13px] text-[#787774] leading-relaxed mb-3">
+          A live web app that helps instructors form balanced student teams — built from my own research,
+          with four matching models and a privacy-first design.
+        </p>
+        <div class="flex gap-2">
+          <a href="https://teamora.streamlit.app" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-[12px] font-medium text-white bg-[#37352f] px-3 py-1.5 rounded-md hover:bg-[#000] transition-colors">Live demo ↗</a>
+          <a href="https://github.com/HPAuncc/teammate-matcher-app" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-[12px] font-medium text-[#37352f] bg-white border border-[#e3e2e0] px-3 py-1.5 rounded-md hover:bg-[#f1f0ef] transition-colors">Code ↗</a>
+        </div>
+      </div>
+    </div>
 
-          <!-- Teammate Matcher: Technical Report (the research behind Teamora) -->
-          <a href="/projects/teammate-matcher-report" class="block bg-[#f6f6f5] border border-[#e3e2e0] rounded-xl overflow-hidden ch group">
-            <div class="h-36 overflow-hidden">
-              <img src="/assets/images/teammate-matcher-report/thumbnail.png" alt="A technical report cover graphic for the Teammate Matcher project, showing clustering diagrams and algorithm evaluation metrics for ML-based academic team formation." class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <div class="px-4 py-3 border-t border-[#e3e2e0] bg-white">
-              <div class="text-sm font-semibold text-[#37352f]">Teammate Matcher: Technical Report</div>
-              <div class="text-[11px] text-[#787774] mt-0.5">The research behind Teamora · ML · Python</div>
-            </div>
-          </a>
+    <!-- Other projects: 2-column grid, equal-height cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
 
-          <!-- HFA -->
-          <a href="/projects/home-field-advantage" class="block bg-[#f6f6f5] border border-[#e3e2e0] rounded-xl overflow-hidden ch group">
-            <div class="h-36 overflow-hidden">
-              <img src="/assets/images/home-field-advantage/thumbnail.jpg" alt="Home-Field Advantage thumbnail" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <div class="px-4 py-3 border-t border-[#e3e2e0] bg-white">
-              <div class="text-sm font-semibold text-[#37352f]">Home-Field Advantage</div>
-              <div class="text-[11px] text-[#787774] mt-0.5">NFL Analytics · Python · pandas</div>
-            </div>
-          </a>
+      <!-- Teammate Matcher: Technical Report (the research behind Teamora) -->
+      <a href="/projects/teammate-matcher-report" class="group flex flex-col h-full bg-white border border-[#e3e2e0] rounded-2xl overflow-hidden shadow-sm ch">
+        <div class="aspect-[16/9] overflow-hidden">
+          <img src="/assets/images/teammate-matcher-report/thumbnail.png" alt="A technical report cover graphic for the Teammate Matcher project, showing clustering diagrams and algorithm evaluation metrics for ML-based academic team formation." class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-5 border-t border-[#e3e2e0] flex flex-col flex-grow">
+          <div class="text-[15px] font-semibold text-[#37352f]">Teammate Matcher: Technical Report</div>
+          <div class="text-xs text-[#787774] mt-1">The research behind Teamora · ML · Python</div>
+        </div>
+      </a>
 
-          <!-- Predicting the Madness -->
-          <a href="/projects/predicting-the-madness" class="block bg-[#f6f6f5] border border-[#e3e2e0] rounded-xl overflow-hidden ch group">
-            <div class="h-36 overflow-hidden bg-[#1b2d4f]">
-              <img src="/assets/images/march-madness/thumbnail.png" alt="An infographic illustration depicting NCAA March Madness basketball analytics and predictive data modeling with various charts and graphs." class="w-full h-full object-cover object-center">
-            </div>
-            <div class="px-4 py-3 border-t border-[#e3e2e0] bg-white">
-              <div class="text-sm font-semibold text-[#37352f]">Predicting the Madness</div>
-              <div class="text-[11px] text-[#787774] mt-0.5">NCAA Basketball · Python · scikit-learn</div>
-            </div>
-          </a>
+      <!-- HFA -->
+      <a href="/projects/home-field-advantage" class="group flex flex-col h-full bg-white border border-[#e3e2e0] rounded-2xl overflow-hidden shadow-sm ch">
+        <div class="aspect-[16/9] overflow-hidden">
+          <img src="/assets/images/home-field-advantage/thumbnail.jpg" alt="Home-Field Advantage thumbnail" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-5 border-t border-[#e3e2e0] flex flex-col flex-grow">
+          <div class="text-[15px] font-semibold text-[#37352f]">Home-Field Advantage</div>
+          <div class="text-xs text-[#787774] mt-1">NFL Analytics · Python · pandas</div>
+        </div>
+      </a>
 
-          <!-- Birds of a Feather -->
-          <a href="/projects/birds-of-a-feather" class="block bg-[#f6f6f5] border border-[#e3e2e0] rounded-xl overflow-hidden ch group">
-            <div class="h-36 overflow-hidden">
-              <img src="/assets/images/birds-of-a-feather/thumbnail.png" alt="An illustration of students connected by a network graph alongside a laptop showing clustering analysis, representing ML-powered academic team formation." class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <div class="px-4 py-3 border-t border-[#e3e2e0] bg-white">
-              <div class="text-sm font-semibold text-[#37352f]">Birds of a Feather</div>
-              <div class="text-[11px] text-[#787774] mt-0.5">ML · Python · scikit-learn</div>
-            </div>
-          </a>
+      <!-- Predicting the Madness -->
+      <a href="/projects/predicting-the-madness" class="group flex flex-col h-full bg-white border border-[#e3e2e0] rounded-2xl overflow-hidden shadow-sm ch">
+        <div class="aspect-[16/9] overflow-hidden bg-[#1b2d4f]">
+          <img src="/assets/images/march-madness/thumbnail.png" alt="An infographic illustration depicting NCAA March Madness basketball analytics and predictive data modeling with various charts and graphs." class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-5 border-t border-[#e3e2e0] flex flex-col flex-grow">
+          <div class="text-[15px] font-semibold text-[#37352f]">Predicting the Madness</div>
+          <div class="text-xs text-[#787774] mt-1">NCAA Basketball · Python · scikit-learn</div>
+        </div>
+      </a>
+
+      <!-- Birds of a Feather -->
+      <a href="/projects/birds-of-a-feather" class="group flex flex-col h-full bg-white border border-[#e3e2e0] rounded-2xl overflow-hidden shadow-sm ch">
+        <div class="aspect-[16/9] overflow-hidden">
+          <img src="/assets/images/birds-of-a-feather/thumbnail.png" alt="An illustration of students connected by a network graph alongside a laptop showing clustering analysis, representing ML-powered academic team formation." class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-5 border-t border-[#e3e2e0] flex flex-col flex-grow">
+          <div class="text-[15px] font-semibold text-[#37352f]">Birds of a Feather</div>
+          <div class="text-xs text-[#787774] mt-1">ML · Python · scikit-learn</div>
+        </div>
+      </a>
 
     </div>
   </div>
+  </section>
 
-  <!-- ─── DIVIDER ─── -->
-  <div class="border-t border-[#e3e2e0]"></div>
-
-  <!-- ─── SKILLS ─── -->
-  <div class="max-w-5xl mx-auto px-5 py-14">
-    <h2 class="text-2xl font-bold text-[#37352f] mb-2">Skills &amp; Background</h2>
+  <!-- ─── SKILLS (white band) ─── -->
+  <section class="bg-white">
+  <div class="max-w-5xl mx-auto px-5 py-16 md:py-20">
+    <div class="accent-rule mb-4"></div>
+    <h2 class="text-2xl md:text-3xl font-bold text-[#37352f] mb-2">Skills &amp; Background</h2>
     <p class="text-[#787774] text-sm mb-8">Technologies I use across data analysis, modeling, and development.</p>
 
     <!-- Tabs -->
@@ -313,26 +320,26 @@ layout: null
       </div>
     </div>
   </div>
+  </section>
 
-  <!-- ─── DIVIDER ─── -->
-  <div class="border-t border-[#e3e2e0]"></div>
-
-  <!-- ─── RECENT POSTS ─── -->
-  <div class="max-w-5xl mx-auto px-5 py-14">
-    <div class="flex items-center justify-between mb-8">
+  <!-- ─── RECENT POSTS (light gray band) ─── -->
+  <section class="bg-[#f7f7f6] border-y border-[#e3e2e0]">
+  <div class="max-w-5xl mx-auto px-5 py-16 md:py-20">
+    <div class="flex items-end justify-between mb-8">
       <div>
-        <h2 class="text-2xl font-bold text-[#37352f] mb-1">Recent Posts</h2>
+        <div class="accent-rule mb-4"></div>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#37352f] mb-1">Recent Posts</h2>
         <p class="text-[#787774] text-sm">Data ethics, sports analytics, and social contexts.</p>
       </div>
       <a href="/blog" class="text-sm text-[#787774] hover:underline hidden sm:block">All posts →</a>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-4">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
 
       <!-- Blog 1 -->
-      <a href="/2026/01/16/reflecting-on-data-science.html" class="block bg-white border border-[#e3e2e0] rounded-xl overflow-hidden ch">
-        <div class="h-32 overflow-hidden">
-          <img src="/assets/images/blog-1/thumbnail.jpg" alt="Data Science in Society thumbnail" class="w-full h-full object-cover object-center">
+      <a href="/2026/01/16/reflecting-on-data-science.html" class="group block bg-white border border-[#e3e2e0] rounded-2xl overflow-hidden shadow-sm ch">
+        <div class="aspect-[16/9] overflow-hidden">
+          <img src="/assets/images/blog-1/thumbnail.jpg" alt="Data Science in Society thumbnail" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
         </div>
         <div class="p-4 border-t border-[#e3e2e0]">
           <div class="flex items-center gap-1.5 mb-2">
@@ -345,9 +352,9 @@ layout: null
       </a>
 
       <!-- Blog 2 -->
-      <a href="/2026/01/27/ethically-ambiguous-data-modeling.html" class="block bg-white border border-[#e3e2e0] rounded-xl overflow-hidden ch">
-        <div class="h-32 overflow-hidden">
-          <img src="/assets/images/blog-2/thumbnail.png" alt="Conceptual illustration of ethically ambiguous data modeling, depicting a central human node split between a structured, glowing data network and a chaotic, hazy web of connections." class="w-full h-full object-cover object-center">
+      <a href="/2026/01/27/ethically-ambiguous-data-modeling.html" class="group block bg-white border border-[#e3e2e0] rounded-2xl overflow-hidden shadow-sm ch">
+        <div class="aspect-[16/9] overflow-hidden">
+          <img src="/assets/images/blog-2/thumbnail.png" alt="Conceptual illustration of ethically ambiguous data modeling, depicting a central human node split between a structured, glowing data network and a chaotic, hazy web of connections." class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
         </div>
         <div class="p-4 border-t border-[#e3e2e0]">
           <div class="flex items-center gap-1.5 mb-2">
@@ -361,9 +368,9 @@ layout: null
 
 
       <!-- Blog 3 -->
-      <a href="/2026/02/14/opportunity-agency-and-health.html" class="block bg-white border border-[#e3e2e0] rounded-xl overflow-hidden ch">
-        <div class="h-32 overflow-hidden">
-          <img src="/assets/images/blog-3/thumbnail.png" alt="Isometric vector illustration of a strategic process map or user journey featuring layered paths, house icons, and human figures in a modern teal and orange palette." class="w-full h-full object-cover object-center">
+      <a href="/2026/02/14/opportunity-agency-and-health.html" class="group block bg-white border border-[#e3e2e0] rounded-2xl overflow-hidden shadow-sm ch">
+        <div class="aspect-[16/9] overflow-hidden">
+          <img src="/assets/images/blog-3/thumbnail.png" alt="Isometric vector illustration of a strategic process map or user journey featuring layered paths, house icons, and human figures in a modern teal and orange palette." class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
         </div>
         <div class="p-4 border-t border-[#e3e2e0]">
           <div class="flex items-center gap-1.5 mb-2">
@@ -377,21 +384,21 @@ layout: null
 
     </div>
 
-    <div class="text-center mt-6">
+    <div class="text-center mt-8">
       <a href="/blog" class="text-sm text-[#787774] hover:underline">View all posts →</a>
     </div>
   </div>
+  </section>
 
-  <!-- ─── DIVIDER ─── -->
-  <div class="border-t border-[#e3e2e0]"></div>
-
-  <!-- ─── CONTACT ─── -->
-  <div class="max-w-5xl mx-auto px-5 py-14">
+  <!-- ─── CONTACT (white band) ─── -->
+  <section class="bg-white">
+  <div class="max-w-5xl mx-auto px-5 py-16 md:py-20">
     <div class="grid md:grid-cols-2 gap-12 items-center">
 
       <!-- Contact text -->
       <div>
-        <h2 class="text-2xl font-bold text-[#37352f] mb-3">Let's connect</h2>
+        <div class="accent-rule mb-4"></div>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#37352f] mb-3">Let's connect</h2>
         <p class="text-[#787774] text-[15px] leading-relaxed mb-6">
           Open to data analyst roles, sports analytics projects, and freelance analytics work.
           Charlotte, NC — available remotely.
@@ -424,18 +431,21 @@ layout: null
         </div>
       </div>
 
-      <!-- Illustration -->
+      <!-- Brand panel -->
       <div class="hidden md:flex items-center justify-center">
-        <img src="https://placehold.co/340x260/f6f6f5/e3e2e0?text=Let%27s+work+together"
-             alt="Contact illustration"
-             class="rounded-2xl border border-[#e3e2e0] w-full max-w-sm" />
+        <div class="relative w-full max-w-sm aspect-[4/3] rounded-2xl border border-[#e3e2e0] overflow-hidden bg-gradient-to-br from-[#0d1b36] to-[#0f7b6c] flex items-center justify-center shadow-sm">
+          <div class="w-24 h-24 rounded-2xl bg-white flex items-center justify-center shadow-lg ring-1 ring-black/5">
+            <img src="/assets/images/logo.png" alt="Hampton Abbott monogram" class="w-20 h-20 object-contain" />
+          </div>
+        </div>
       </div>
 
     </div>
   </div>
+  </section>
 
   <!-- ─── DARK CTA (letter card) ─── -->
-  <div class="border-t border-[#e3e2e0] bg-[#0d1b36]">
+  <div class="bg-[#0d1b36]">
     <div class="max-w-5xl mx-auto px-5 py-16">
 
       <!-- CTA heading -->
