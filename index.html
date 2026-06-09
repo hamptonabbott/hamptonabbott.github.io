@@ -19,24 +19,8 @@ layout: null
   <meta name="twitter:title" content="Hampton Abbott — Sports Analytics &amp; Data Projects" />
   <meta name="twitter:description" content="Project writeups, code, and data work — including Teamora, NFL/NCAA analytics, and more." />
   <meta name="twitter:image" content="{{ '/assets/images/og-preview.png' | absolute_url }}" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-          colors: {
-            nd:   '#37352f',
-            ng:   '#787774',
-            nb:   '#f6f6f5',
-            nl:   '#f1f0ef',
-            nbr:  '#e3e2e0',
-            nteal:'#0f7b6c',
-          },
-        },
-      },
-    }
-  </script>
+  <!-- Precompiled Tailwind (static; replaces the Play CDN so the page reaches idle and ships less JS) -->
+  <link rel="stylesheet" href="/assets/tailwind.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -53,6 +37,17 @@ layout: null
     .tab-btn.active { background:#37352f; color:#fff; }
     .tab-panel { display:none; }
     .tab-panel.active { display:flex; }
+    /* Respect users who prefer reduced motion: neutralize hover transforms/transitions */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+        scroll-behavior: auto !important;
+      }
+      .ch:hover { transform: none !important; }
+      .group:hover img { transform: none !important; }
+    }
   </style>
 </head>
 <body class="antialiased overflow-x-hidden">

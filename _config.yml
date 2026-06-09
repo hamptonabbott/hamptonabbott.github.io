@@ -15,3 +15,11 @@ header_pages:
   - blog.md
   - index.md
   - projects.md
+
+# Tailwind build sources (not part of the published site; assets/tailwind.css is the compiled output)
+exclude:
+  - tailwind.config.js
+  - tailwind.src.css
+  - node_modules
+  - package.json
+  - package-lock.json
