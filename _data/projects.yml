@@ -40,7 +40,7 @@
     project teams with clustering and Hungarian assignment, audited for the bias
     hidden in self-reported skills and GPA.
   tags: [ML, Python, scikit-learn]
-  thumbnail: /assets/images/birds-of-a-feather/thumbnail.png
+  thumbnail: /assets/images/birds-of-a-feather/thumbnail.jpg
   writeup: /projects/birds-of-a-feather
   report: /projects/teammate-matcher-report
   report_label: "Technical report →"
@@ -52,7 +52,7 @@
     regular-season team stats, model comparison, and evaluation on real bracket
     outcomes.
   tags: [NCAA Basketball, Python, scikit-learn]
-  thumbnail: /assets/images/march-madness/thumbnail.png
+  thumbnail: /assets/images/march-madness/thumbnail.jpg
   writeup: /projects/predicting-the-madness
   report: /projects/predicting-the-madness-report
   report_label: "Technical report →"
