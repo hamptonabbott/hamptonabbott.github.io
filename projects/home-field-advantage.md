@@ -1,226 +1,82 @@
 ---
 layout: post
-title: "Home-Field Advantage in the NFL (2000-2023)"
-subtitle: "Quantifying the NFL home-field edge, 2000–2023"
-nav_exclude: true
----
-**Course:** DTSC-2301 Data Science Foundations (UNC Charlotte)  
-**Tools:** Python, pandas, matplotlib, seaborn  
-**Dataset:** [nflverse game-level data (`games.csv`)](https://github.com/nflverse/nfldata/raw/master/data/games.csv)  
-**Technical report:** [Methods, data &amp; findings →](/projects/home-field-advantage-report)
-
+title: "Home-Field Advantage"
+subtitle: "Is the NFL's home edge real — and is it fading?"
+thumbnail: /assets/images/home-field-advantage/thumbnail.jpg
 ---
 
-## Why this project matters
-People often say NFL teams play better at home. We hear this all the time from fans, TV analysts, and betting discussions. But instead of assuming it is always true, I wanted to check the data.
+Ask any fan, broadcaster, or bettor and you'll hear the same thing: teams play better at home. The
+crowd, the travel, the familiar turf — it all supposedly adds up to a real edge. But "everybody knows
+it" isn't evidence. So I went looking for the actual number.
 
-This project looks at two things:
-1. Does home-field advantage show up in the data?
-2. Has that advantage changed over time?
+I pulled every NFL regular-season game from 2000 to 2023 — **6,175 games** — to answer two questions:
+is home-field advantage real, and has it changed?
 
----
+> This page is the story. For the full methodology — data sourcing, cleaning decisions, and how the
+> sample was built — see the [technical report →](/projects/home-field-advantage-report).
 
-## 1) Problem definition
+## The short answer
 
-### Research question
-To what extent does home-field advantage influence NFL game outcomes, and how has that effect changed from 2000-2023?
+Home-field advantage is real. Across all 6,175 games, home teams won **56.26%** of the time and
+outscored visitors by an average of **+2.23 points**. Over six thousand games, a six-point edge on a
+coin flip isn't noise — it's a genuine pattern.
 
-### Project goal
-This is an exploratory project. I am trying to understand patterns in past data, not build a prediction model.
+But it's shrinking.
 
-### Why someone might care
-- Fans who want to understand if "home-field advantage" is real
-- Students learning how to connect data cleaning to good analysis
-- Anyone who wants a data-based answer instead of just opinions
+## The edge is fading
 
----
+![Home win rate by season, 2000–2023](/assets/images/home-field-advantage/home_win_trend.png)
 
-## 2) Data description and sample design
+Year to year, home win rate bounces around a lot. The long-run direction is what matters, and it
+points down:
 
-### Data source
-- nflverse `games.csv`
-- https://github.com/nflverse/nfldata/raw/master/data/games.csv
+- **2000–2008 average:** 57.03%
+- **2015–2023 average:** 54.84%
+- **The drop:** 2.19 percentage points
 
-### What each row means
-Each row is one NFL game.
+A five-year rolling average strips out the season-to-season noise and makes the slide easier to see.
 
-### Main columns used
-- `season`
-- `game_type`
-- `home_score`
-- `away_score`
-- `game_id`
+![Five-year rolling average of home win rate](/assets/images/home-field-advantage/rolling_avg.png)
 
-### Other indicators that were available but not used in final analysis
-The dataset also includes other fields such as overtime (`overtime`) and additional game context columns. I reviewed these, but I did not include them in the final analysis because they are outside this project's scope.
+I used a five-year window on purpose: two or three years still jumps around enough to make ordinary
+swings look like real trend breaks, while a very long window hides genuine shifts. Five years is the
+middle ground — smooth enough to read the trend, sharp enough to still show a shock like 2020.
 
-This project focuses on one core question: how home win rate changed over time. Adding many extra indicators at once would make the story less clear for this assignment.
+## 2020: the year home barely mattered
 
-### Sample size and filtering steps
-- Raw file: **7,276** games (1999-2025)
-- Keep only 2000-2023: **6,447** games
-- Keep regular season only: **6,175** games
-- Seasons in final sample: **24**
-- Average games per season: **257.3** (range 248-272)
-- Ties: **14** games (0.23%)
+2020 is the only season in the sample where home teams *didn't* win a majority — **49.80%**, the
+lowest of the 24 years (the high was 2003 at 61.33%). Stadiums sat empty or near-empty through the
+pandemic, which makes crowd noise the obvious suspect. But I'm not going to overclaim it: the data
+shows the dip, not the reason for it. Home win rate climbs back after 2020 — it just hasn't returned
+to the early-2000s norm.
 
-### What this data does not include directly
-This dataset does not directly include some things that could matter, like:
-- detailed travel burden,
-- crowd size and noise,
-- injuries,
-- or full team strength controls.
+## It's not just wins — it's margin
 
-So we can describe patterns, but we should be careful about saying exactly why those patterns happen.
+A win is binary, so it hides *how much* home teams win by. The scoring margin fills that in.
 
----
+![Distribution of home scoring margin](/assets/images/home-field-advantage/margin_distribution.png)
 
-## 3) Cleaning and preparation decisions
+Home teams don't only win more often — they carry a positive average margin of **+2.23 points**
+(23.17 scored to 20.94 allowed). The advantage shows up in the scoreboard, not just the win column.
 
-### Decision A: Use 2000-2023
-**Why:** It gives enough years to study trends, while still focusing on the modern NFL.
+## What I can — and can't — say
 
-**Tradeoff:** We leave out older seasons and newer seasons after 2023.
+The honest read: home-field advantage still exists, but it's weaker than it was twenty years ago.
+What the data *doesn't* support is the bigger claims — that the edge is gone, that crowd noise is the
+sole cause, or that any of this proves causation. The dataset has no attendance, travel, injury, or
+team-strength controls, so it can describe the trend without explaining why it's happening.
 
-### Decision B: Focus on regular-season games
-**Why:** Regular-season data is more consistent year to year, which helps trend comparisons.
+## Why it matters
 
-**Important note:** playoff rows in this dataset are labeled `WC`, `DIV`, `CON`, and `SB` (not `POST`). Because of this, the current postseason export logic produced an empty postseason file. To keep results reliable, I focused final claims on the regular-season sample.
+A few points of home-field edge sounds small until you multiply it across a 272-game season and a
+betting market that prices it in — at that scale it's real wins and real money. The takeaway isn't
+that home field is meaningless; it's that it's worth measurably less than it used to be, and anyone
+leaning on the old assumption is overpaying for it.
 
-### Decision C: Make score columns numeric and check for missing values
-- Converted `home_score` and `away_score` to numeric
-- Removed rows missing either score
-
-**Why:** This makes sure win/loss calculations are valid.
-
-**Result:** No regular-season rows were removed, but this check is still important.
-
-### Decision D: Handle ties separately
-- `home_win = 1` for home win
-- `home_win = 0` for home loss
-- `home_win = NaN` for ties
-- Also created a separate `home_tie` column
-
-**Why:** Ties should not be counted as losses.
-
-### Decision E: Check for duplicate games
-I verified that `game_id` values are unique in the final sample.
+If I took this further, I'd add attendance data to test the crowd-noise idea head-on, separate out
+neutral-site and international games, and bring in team-strength controls to start moving from *what
+happened* toward *why*.
 
 ---
 
-## 4) Visual analysis
-
-### Visual 1: Home win rate by season
-![Home win rate by season](/assets/images/home-field-advantage/home_win_trend.png)
-
-**Why this chart:** It shows how home win rate changes year by year.
-
-**What it shows:**
-- Home teams are usually above 50%, so home advantage exists.
-- There is a lot of season-to-season movement.
-- 2020 looks unusually low.
-
-### Visual 2: Home win rate with 5-year rolling average
-![Home win rate with 5-year rolling average](/assets/images/home-field-advantage/rolling_avg.png)
-
-**Why this chart:** It makes the long-term trend easier to see.
-
-**Why 5-year instead of 2- or 3-year:**
-A 2-year or 3-year average still jumps around a lot and can make normal ups and downs look like major trend changes. A 5-year average smooths short-term noise so the long-term direction is easier to read.
-
-I also did not use a very long window because that can hide important shifts. So 5 years is a good middle option: smooth enough to see the big pattern, but still able to show major changes like 2020.
-
-### Visual 3: Home scoring margin distribution
-![Distribution of home margin](/assets/images/home-field-advantage/margin_distribution.png)
-
-**Why this chart:** Win rate is only yes/no. Margin adds more detail about game outcomes.
-
-**What it shows:**
-- Home teams do not just win a bit more often.
-- They also have a positive average point margin.
-
----
-
-## 5) Main findings
-
-### Finding 1: Home-field advantage is real
-Across 6,175 regular-season games, home teams won **56.26%** of games.
-
-### Finding 2: Home advantage looks weaker than in the early 2000s
-- 2000-2008 average home win rate: **57.03%**
-- 2015-2023 average home win rate: **54.84%**
-- Change: **-2.19 percentage points**
-
-### Finding 3: 2020 is the lowest season in this sample
-- Lowest season: **2020 at 49.80%**
-- Highest season: **2003 at 61.33%**
-
-### Finding 4: There is some rebound after 2020
-Home win rate rises after 2020, but still appears lower than many early-2000s years.
-
-### Margin context
-- Mean home score: **23.17**
-- Mean away score: **20.94**
-- Mean home margin: **+2.23** points
-
----
-
-## 6) Interpretation
-
-The best conclusion is:
-- Home-field advantage still exists,
-- but it appears weaker than it was in earlier years.
-
-This project describes patterns in the data. It does not prove a single cause.
-
----
-
-## 7) What would be misleading to say
-
-It would be misleading to claim:
-- home-field advantage is gone,
-- crowd noise is the only cause,
-- or this project proves causation.
-
-The data supports trends, not final cause-and-effect proof.
-
----
-
-## 8) Limitations, assumptions, and reflection
-
-### Main limitations
-- No full controls for team quality, QB quality, injuries, or coaching
-- No direct attendance/crowd variable
-- Neutral/international game context not modeled separately
-
-### Assumptions
-- `game_id` correctly identifies unique games
-- Score columns are valid after cleaning
-- Seasonal averages are appropriate for this question
-
-### Reflection
-A small percentage change can still matter across thousands of games. At the same time, careful analysis means being honest about what the data can and cannot tell us.
-
----
-
-## 9) Next steps (if I continue this project)
-- Add attendance data to test crowd-related ideas more directly
-- Separate neutral-site/international games
-- Add more controls for team strength
-- Compare more time periods in a formal way
-
----
-
-## 10) References and transparency
-
-### Data source
-- nflverse. *nfldata: games.csv* (GitHub repository dataset file). Retrieved February 18, 2026, from [https://github.com/nflverse/nfldata/raw/master/data/games.csv](https://github.com/nflverse/nfldata/raw/master/data/games.csv)
-
-### Transparency
-- ChatGPT 5.2 was used as a support tool to polish written explanations for clarity and readability and as a teaching aid during web development (e.g., explaining concepts, troubleshooting, and improving understanding). It was not used to design, generate, or compose the core analytical, technical, or conceptual components of this project. All primary ideas, decisions, and project outcomes remain the author’s own.
-
----
-
-## View full code
-GitHub Repository:  
-[DTSC-2301-Project-1](https://github.com/HPAuncc/DTSC-2301-Project-1)
+*Full data sourcing, cleaning, and methodology: [Home-Field Advantage — Technical Report →](/projects/home-field-advantage-report)*
