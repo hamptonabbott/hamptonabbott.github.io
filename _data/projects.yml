@@ -63,7 +63,7 @@
     An exploratory analysis of NFL home-field advantage from 2000–2023 — measuring
     the size of the edge and how it has shifted across more than two decades.
   tags: [NFL Analytics, Python, pandas]
-  thumbnail: /assets/images/home-field-advantage/thumbnail.png
+  thumbnail: /assets/images/home-field-advantage/thumbnail.jpg
   writeup: /projects/home-field-advantage
   report: /projects/home-field-advantage-report
   report_label: "Technical report →"
