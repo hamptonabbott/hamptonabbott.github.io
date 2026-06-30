@@ -54,9 +54,8 @@
   tags: [NCAA Basketball, Python, scikit-learn]
   thumbnail: /assets/images/march-madness/thumbnail.png
   writeup: /projects/predicting-the-madness
-  # TODO: point at the specific report markdown once confirmed; repo root for now.
-  report: https://github.com/HPAuncc/March-Madness-Model
-  report_label: "Report on GitHub ↗"
+  report: /projects/predicting-the-madness-report
+  report_label: "Technical report →"
 
 - title: "Home-Field Advantage"
   category: case-study
@@ -66,3 +65,5 @@
   tags: [NFL Analytics, Python, pandas]
   thumbnail: /assets/images/home-field-advantage/thumbnail.jpg
   writeup: /projects/home-field-advantage
+  report: /projects/home-field-advantage-report
+  report_label: "Technical report →"
