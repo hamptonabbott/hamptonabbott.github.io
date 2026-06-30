@@ -1,0 +1,68 @@
+# Single source of truth for the homepage + /projects project cards.
+# Rendered by _includes/project-card.html. Only links that exist are shown.
+# Fields: title, blurb, tags[], thumbnail, category (featured | case-study), badge
+# Optional links: live (+live_label), code, writeup (internal page), report (+report_label)
+
+# ── Featured: self-developed, deployed builds ──────────────────────────────
+- title: "Teamora — Student Team-Formation Web App"
+  category: featured
+  badge: "Featured · Live App"
+  blurb: >
+    A live web app that helps instructors form balanced student teams from a quick
+    survey. It grew out of my Birds of a Feather research — four matching models
+    (Hungarian assignment as the optimized default), a six-metric team-quality score,
+    and a privacy-first design that processes data in memory only.
+  tags: [Python, Streamlit, scikit-learn, scipy]
+  thumbnail: /assets/images/teamora.png
+  live: https://teamora.streamlit.app
+  live_label: "Live demo ↗"
+  code: https://github.com/HPAuncc/teammate-matcher-app
+
+- title: "Credit-Risk Default Prediction — Loan-Default Model & Dashboard"
+  category: featured
+  badge: "Featured · Live Dashboard"
+  blurb: >
+    A normalized SQL database of 1.35M consumer loans, with scikit-learn models that
+    flag loan default at 0.716 ROC-AUC and an interactive Tableau dashboard of the
+    risk segments — including a borrower-only model that edges out the lender's own
+    credit grades.
+  tags: [SQL, Python, scikit-learn, Tableau]
+  thumbnail: /assets/images/credit-risk.png
+  live: https://public.tableau.com/app/profile/hampton.abbott/viz/Credit-RiskDefaultPrediction/Overview
+  live_label: "Live dashboard ↗"
+  code: https://github.com/HPAuncc/credit-risk-analysis
+
+# ── Case Studies: analytical studies with internal writeups ────────────────
+- title: "Birds of a Feather"
+  category: case-study
+  blurb: >
+    The published research behind Teamora: an ML pipeline that forms fairer student
+    project teams with clustering and Hungarian assignment, audited for the bias
+    hidden in self-reported skills and GPA.
+  tags: [ML, Python, scikit-learn]
+  thumbnail: /assets/images/birds-of-a-feather/thumbnail.png
+  writeup: /projects/birds-of-a-feather
+  report: /projects/teammate-matcher-report
+  report_label: "Technical report →"
+
+- title: "Predicting the Madness"
+  category: case-study
+  blurb: >
+    A machine-learning approach to the NCAA tournament: feature engineering on
+    regular-season team stats, model comparison, and evaluation on real bracket
+    outcomes.
+  tags: [NCAA Basketball, Python, scikit-learn]
+  thumbnail: /assets/images/march-madness/thumbnail.png
+  writeup: /projects/predicting-the-madness
+  # TODO: point at the specific report markdown once confirmed; repo root for now.
+  report: https://github.com/HPAuncc/March-Madness-Model
+  report_label: "Report on GitHub ↗"
+
+- title: "Home-Field Advantage"
+  category: case-study
+  blurb: >
+    An exploratory analysis of NFL home-field advantage from 2000–2023 — measuring
+    the size of the edge and how it has shifted across more than two decades.
+  tags: [NFL Analytics, Python, pandas]
+  thumbnail: /assets/images/home-field-advantage/thumbnail.jpg
+  writeup: /projects/home-field-advantage

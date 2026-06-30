@@ -1,0 +1,50 @@
+{%- comment -%}
+  Project card. Params:
+    include.project  — an entry from _data/projects.yml
+    include.variant  — "featured" (full-width banner) or "compact" (grid card)
+  Renders only the links that exist; never an empty button.
+{%- endcomment -%}
+{%- assign p = include.project -%}
+{%- assign primary = p.writeup | default: p.live | default: p.report | default: p.code -%}
+
+{%- capture buttons -%}
+  {%- if p.live -%}
+    <a href="{{ p.live }}" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-[12px] font-medium text-white bg-[#37352f] px-3 py-1.5 rounded-md hover:bg-[#000] transition-colors">{{ p.live_label | default: "Live demo ↗" }}</a>
+  {%- endif -%}
+  {%- if p.writeup -%}
+    <a href="{{ p.writeup | relative_url }}" class="inline-flex items-center gap-1 text-[12px] font-medium text-white bg-[#37352f] px-3 py-1.5 rounded-md hover:bg-[#000] transition-colors">Read case study →</a>
+  {%- endif -%}
+  {%- if p.report -%}
+    <a href="{{ p.report }}"{% unless p.report contains '/projects/' %} target="_blank" rel="noopener"{% endunless %} class="inline-flex items-center gap-1 text-[12px] font-medium text-[#37352f] bg-white border border-[#e3e2e0] px-3 py-1.5 rounded-md hover:bg-[#f1f0ef] transition-colors">{{ p.report_label | default: "Report ↗" }}</a>
+  {%- endif -%}
+  {%- if p.code -%}
+    <a href="{{ p.code }}" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-[12px] font-medium text-[#37352f] bg-white border border-[#e3e2e0] px-3 py-1.5 rounded-md hover:bg-[#f1f0ef] transition-colors">Code ↗</a>
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- if include.variant == "featured" -%}
+<div class="bg-[#f6f6f5] border border-[#e3e2e0] rounded-2xl overflow-hidden shadow-sm">
+  <a href="{{ primary }}"{% unless p.writeup %} target="_blank" rel="noopener"{% endunless %} class="block overflow-hidden bg-[#f4f5f7] group">
+    <img src="{{ p.thumbnail | relative_url }}" alt="{{ p.title | escape }} preview" class="w-full max-h-[300px] object-cover object-top block group-hover:scale-105 transition-transform duration-300">
+  </a>
+  <div class="px-5 py-4 border-t border-[#e3e2e0] bg-white">
+    {%- if p.badge %}<span class="inline-block text-[10px] font-semibold uppercase tracking-wide text-[#0a7d2c] bg-[#e6f4ea] px-2 py-0.5 rounded mb-2">{{ p.badge }}</span>{% endif %}
+    <div class="text-base font-semibold text-[#37352f]">{{ p.title }}</div>
+    <div class="text-[11px] text-[#787774] mt-0.5 mb-2">{{ p.tags | join: " · " }}</div>
+    <p class="text-[13px] text-[#787774] leading-relaxed mb-3">{{ p.blurb }}</p>
+    <div class="flex flex-wrap gap-2">{{ buttons }}</div>
+  </div>
+</div>
+{%- else -%}
+<div class="group flex flex-col h-full bg-white border border-[#e3e2e0] rounded-2xl overflow-hidden shadow-sm ch">
+  <a href="{{ primary }}"{% unless p.writeup %} target="_blank" rel="noopener"{% endunless %} class="block aspect-[16/9] overflow-hidden">
+    <img src="{{ p.thumbnail | relative_url }}" alt="{{ p.title | escape }} thumbnail" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+  </a>
+  <div class="p-5 border-t border-[#e3e2e0] flex flex-col flex-grow">
+    <a href="{{ primary }}"{% unless p.writeup %} target="_blank" rel="noopener"{% endunless %} class="text-[15px] font-semibold text-[#37352f] hover:text-[#0f7b6c] transition-colors">{{ p.title }}</a>
+    <div class="text-xs text-[#787774] mt-1 mb-3">{{ p.tags | join: " · " }}</div>
+    <p class="text-[13px] text-[#787774] leading-relaxed mb-4">{{ p.blurb }}</p>
+    <div class="flex flex-wrap gap-2 mt-auto">{{ buttons }}</div>
+  </div>
+</div>
+{%- endif -%}
