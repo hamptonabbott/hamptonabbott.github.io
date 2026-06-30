@@ -5,11 +5,14 @@
       <div class="w-6 h-6 bg-[#37352f] rounded-sm flex items-center justify-center text-white text-[11px] font-black select-none">H</div>
       HP Abbott
     </a>
+
+    <!-- Desktop links -->
     <div class="hidden md:flex items-center gap-0.5 text-sm text-[#37352f]">
       <a href="{{ '/' | relative_url }}" class="px-3 py-1 hl rounded transition-colors">Home</a>
       <a href="{{ '/projects' | relative_url }}" class="px-3 py-1 hl rounded transition-colors">Projects</a>
       <a href="{{ '/blog' | relative_url }}" class="px-3 py-1 hl rounded transition-colors">Writing</a>
     </div>
+
     <div class="flex items-center gap-2 text-sm">
       <a href="{{ '/assets/Hampton_Abbott_Resume.pdf' | relative_url }}" target="_blank" rel="noopener"
          class="hidden sm:inline-flex items-center gap-1.5 border border-[#e3e2e0] text-[#37352f] text-xs font-medium px-3 py-1.5 rounded-full hover:bg-[#f1f0ef] transition-colors">
@@ -20,6 +23,52 @@
          class="bg-[#0f7b6c] text-white text-xs font-semibold px-4 py-1.5 rounded-full hover:bg-[#0a6358] transition-colors">
         Hire me
       </a>
+      <!-- Mobile hamburger -->
+      <button id="nav-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu"
+              class="md:hidden inline-flex items-center justify-center w-8 h-8 -mr-1 rounded text-[#37352f] hover:bg-[#f1f0ef] transition-colors">
+        <svg data-icon="open" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg data-icon="close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile slide-down menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-[#e3e2e0] bg-white">
+    <div class="max-w-5xl mx-auto px-5 py-3 flex flex-col text-sm text-[#37352f]">
+      <a href="{{ '/' | relative_url }}" class="px-1 py-2.5 hl rounded transition-colors">Home</a>
+      <a href="{{ '/projects' | relative_url }}" class="px-1 py-2.5 hl rounded transition-colors">Projects</a>
+      <a href="{{ '/blog' | relative_url }}" class="px-1 py-2.5 hl rounded transition-colors">Writing</a>
+      <a href="{{ '/assets/Hampton_Abbott_Resume.pdf' | relative_url }}" target="_blank" rel="noopener" class="px-1 py-2.5 hl rounded transition-colors inline-flex items-center gap-2">
+        <svg class="w-4 h-4 text-[#787774]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/></svg>
+        Download résumé
+      </a>
+      <a href="mailto:abbott.hampton@gmail.com" class="mt-2 bg-[#0f7b6c] text-white text-center font-semibold px-4 py-2 rounded-full hover:bg-[#0a6358] transition-colors">Hire me</a>
     </div>
   </div>
 </nav>
+
+<script>
+  (function () {
+    var btn = document.getElementById('nav-toggle');
+    var menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+    var iconOpen = btn.querySelector('[data-icon="open"]');
+    var iconClose = btn.querySelector('[data-icon="close"]');
+    function setOpen(open) {
+      menu.classList.toggle('hidden', !open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      iconOpen.classList.toggle('hidden', open);
+      iconClose.classList.toggle('hidden', !open);
+    }
+    btn.addEventListener('click', function () {
+      setOpen(btn.getAttribute('aria-expanded') !== 'true');
+    });
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { setOpen(false); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setOpen(false);
+    });
+  })();
+</script>
