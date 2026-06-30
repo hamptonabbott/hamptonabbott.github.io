@@ -16,6 +16,13 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #ffffff; color: 
 .tab-panel { display:none; }
 .tab-panel.active { display:flex; }
 
+/* ── Post-layout title hierarchy ── Preflight flattens bare <h1> to body size,
+   which lets in-content h2s (minima: 32px) visually outrank the page title.
+   Class rules (0,1,0) beat Preflight's element rule so the title leads again. */
+.page-title { font-size: 2.75rem; line-height: 1.08; font-weight: 800; letter-spacing: -0.02em; color: #37352f; margin: 0 0 .35rem; }
+.page-subtitle { font-size: 1.25rem; line-height: 1.45; font-weight: 400; color: #6b7280; margin: 0 0 .75rem; }
+@media (max-width: 800px) { .page-title { font-size: 2.125rem; } .page-subtitle { font-size: 1.125rem; } }
+
 /* ── Prose fix ── Tailwind Preflight (loaded site-wide for the chrome) strips
    list markers/indent. minima styles the rest of .post-content; re-add lists. */
 .post-content ul, .post-content ol { margin: 0 0 1rem; padding-left: 1.5rem; }
