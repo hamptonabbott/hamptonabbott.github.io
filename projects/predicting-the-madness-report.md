@@ -2,7 +2,6 @@
 layout: post
 title: "Predicting the Madness — Technical Report"
 subtitle: "Methods, models, and results behind the NCAA tournament predictor"
-thumbnail: /assets/images/march-madness/thumbnail.png
 nav_exclude: true
 ---
 **Course:** DTSC 2302 — Project 2  

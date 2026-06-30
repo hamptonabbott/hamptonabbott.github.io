@@ -2,8 +2,6 @@
 layout: post
 title: "Teammate Matcher: Technical Report"
 subtitle: "Group Project Team Formation via Clustering & Optimization"
-thumbnail: /assets/images/teammate-matcher-report/thumbnail.png
-thumbnail_alt: "Technical report thumbnail for the Teammate Matcher project showing clustering and optimization methodology."
 nav_exclude: true
 ---
 
