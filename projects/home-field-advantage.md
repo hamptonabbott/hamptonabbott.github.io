@@ -1,10 +1,9 @@
 ---
-layout: default
+layout: post
 title: "Home-Field Advantage in the NFL (2000-2023)"
+subtitle: "Quantifying the NFL home-field edge, 2000–2023"
 nav_exclude: true
 ---
-# Home-Field Advantage in the NFL (2000-2023)
-
 **Course:** DTSC-2301 Data Science Foundations (UNC Charlotte)  
 **Tools:** Python, pandas, matplotlib, seaborn  
 **Dataset:** [nflverse game-level data (`games.csv`)](https://github.com/nflverse/nfldata/raw/master/data/games.csv)
