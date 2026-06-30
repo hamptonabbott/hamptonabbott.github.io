@@ -27,7 +27,7 @@
     risk segments — including a borrower-only model that edges out the lender's own
     credit grades.
   tags: [SQL, Python, scikit-learn, Tableau]
-  thumbnail: /assets/images/credit-risk.png
+  thumbnail: /assets/images/credit-risk.jpg
   live: https://public.tableau.com/app/profile/hampton.abbott/viz/Credit-RiskDefaultPrediction/Overview
   live_label: "Live dashboard ↗"
   code: https://github.com/HPAuncc/credit-risk-analysis

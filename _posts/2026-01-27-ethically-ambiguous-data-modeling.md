@@ -3,7 +3,7 @@ layout: post
 title: "Ethically Ambiguous Data Modeling"
 subtitle: "Navigating the Gray Areas of Model Design"
 date: 2026-01-27
-thumbnail: /assets/images/blog-2/thumbnail.png
+thumbnail: /assets/images/blog-2/thumbnail.jpg
 thumbnail_alt: "Conceptual illustration of ethically ambiguous data modeling, depicting a central human node split between a structured, glowing data network and a chaotic, hazy web of connections."
 ---
 

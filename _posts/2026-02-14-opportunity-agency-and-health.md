@@ -3,7 +3,7 @@ layout: post
 title: "Opportunity, Agency, and Health"
 subtitle: "Where Structure Meets Choice"
 date: 2026-02-14
-thumbnail: /assets/images/blog-3/thumbnail.png
+thumbnail: /assets/images/blog-3/thumbnail.jpg
 thumbnail_alt: "Isometric vector illustration of a strategic process map or user journey featuring layered paths, house icons, and human figures in a modern teal and orange palette."
 ---
 
