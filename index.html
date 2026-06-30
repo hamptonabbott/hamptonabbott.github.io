@@ -215,70 +215,38 @@ layout: null
   </div>
   </section>
 
-  <!-- ─── RECENT POSTS (light gray band) ─── -->
+  <!-- ─── WRITING (light gray band) ─── -->
   <section class="bg-[#f7f7f6] border-y border-[#e3e2e0]">
   <div class="max-w-5xl mx-auto px-5 py-16 md:py-20">
     <div class="flex items-end justify-between mb-8">
       <div>
         <div class="accent-rule mb-4"></div>
-        <h2 class="text-2xl md:text-3xl font-bold text-[#37352f] mb-1">Recent Posts</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#37352f] mb-1">Writing</h2>
         <p class="text-[#787774] text-sm">Data ethics, sports analytics, and social contexts.</p>
       </div>
-      <a href="/blog" class="text-sm text-[#787774] hover:underline hidden sm:block">All posts →</a>
+      <a href="{{ '/blog' | relative_url }}" class="text-sm text-[#787774] hover:underline hidden sm:block">All writing →</a>
     </div>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-
-      <!-- Blog 1 -->
-      <a href="/2026/01/16/reflecting-on-data-science.html" class="group block bg-white border border-[#e3e2e0] rounded-2xl overflow-hidden shadow-sm ch">
+      {% for post in site.posts limit:3 %}
+      <a href="{{ post.url | relative_url }}" class="group block bg-white border border-[#e3e2e0] rounded-2xl overflow-hidden shadow-sm ch">
         <div class="aspect-[16/9] overflow-hidden">
-          <img src="/assets/images/blog-1/thumbnail.jpg" alt="Data Science in Society thumbnail" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+          <img src="{{ post.thumbnail | default: '/assets/images/og-preview.png' | relative_url }}" alt="{{ post.title | escape }} thumbnail" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
         </div>
         <div class="p-4 border-t border-[#e3e2e0]">
           <div class="flex items-center gap-1.5 mb-2">
             <div class="w-4 h-4 rounded-full bg-[#e3e2e0] flex items-center justify-center text-[7px] font-bold text-[#787774]">H</div>
-            <span class="text-[10px] text-[#787774]">Hampton Abbott · Jan 16, 2026</span>
+            <span class="text-[10px] text-[#787774]">Hampton Abbott · {{ post.date | date: "%b %d, %Y" }}</span>
           </div>
-          <div class="text-sm font-semibold text-[#37352f] leading-snug">Data Science in Society</div>
-          <div class="text-xs text-[#787774] mt-0.5">Context, Bias, and Responsibility</div>
+          <div class="text-sm font-semibold text-[#37352f] leading-snug">{{ post.title }}</div>
+          {% if post.subtitle %}<div class="text-xs text-[#787774] mt-0.5">{{ post.subtitle }}</div>{% endif %}
         </div>
       </a>
-
-      <!-- Blog 2 -->
-      <a href="/2026/01/27/ethically-ambiguous-data-modeling.html" class="group block bg-white border border-[#e3e2e0] rounded-2xl overflow-hidden shadow-sm ch">
-        <div class="aspect-[16/9] overflow-hidden">
-          <img src="/assets/images/blog-2/thumbnail.png" alt="Conceptual illustration of ethically ambiguous data modeling, depicting a central human node split between a structured, glowing data network and a chaotic, hazy web of connections." class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
-        </div>
-        <div class="p-4 border-t border-[#e3e2e0]">
-          <div class="flex items-center gap-1.5 mb-2">
-            <div class="w-4 h-4 rounded-full bg-[#e3e2e0] flex items-center justify-center text-[7px] font-bold text-[#787774]">H</div>
-            <span class="text-[10px] text-[#787774]">Hampton Abbott · Jan 27, 2026</span>
-          </div>
-          <div class="text-sm font-semibold text-[#37352f] leading-snug">Ethically Ambiguous Data Modeling</div>
-          <div class="text-xs text-[#787774] mt-0.5">Navigating the Gray Areas of Model Design</div>
-        </div>
-      </a>
-
-
-      <!-- Blog 3 -->
-      <a href="/2026/02/14/opportunity-agency-and-health.html" class="group block bg-white border border-[#e3e2e0] rounded-2xl overflow-hidden shadow-sm ch">
-        <div class="aspect-[16/9] overflow-hidden">
-          <img src="/assets/images/blog-3/thumbnail.png" alt="Isometric vector illustration of a strategic process map or user journey featuring layered paths, house icons, and human figures in a modern teal and orange palette." class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
-        </div>
-        <div class="p-4 border-t border-[#e3e2e0]">
-          <div class="flex items-center gap-1.5 mb-2">
-            <div class="w-4 h-4 rounded-full bg-[#e3e2e0] flex items-center justify-center text-[7px] font-bold text-[#787774]">H</div>
-            <span class="text-[10px] text-[#787774]">Hampton Abbott · Feb 14, 2026</span>
-          </div>
-          <div class="text-sm font-semibold text-[#37352f] leading-snug">Opportunity, Agency, and Health</div>
-          <div class="text-xs text-[#787774] mt-0.5">Where Structure Meets Choice</div>
-        </div>
-      </a>
-
+      {% endfor %}
     </div>
 
     <div class="text-center mt-8">
-      <a href="/blog" class="text-sm text-[#787774] hover:underline">View all posts →</a>
+      <a href="{{ '/blog' | relative_url }}" class="text-sm text-[#787774] hover:underline">View all writing →</a>
     </div>
   </div>
   </section>

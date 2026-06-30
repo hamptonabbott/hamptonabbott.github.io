@@ -3,6 +3,7 @@ layout: post
 title: "Data Science in Society"
 subtitle: "Context, Bias, and Responsibility"
 date: 2026-01-16
+thumbnail: /assets/images/blog-1/thumbnail.jpg
 ---
 
 When we look at a model used for predictive analytics in sports or healthcare, it is easy to view it as a series of neutral data points. However, as I delve deeper into my Sports Analytics major, I am realizing that data is never truly “raw”—it is collected by people, about people, and within complex social systems. Learning data science in an interdisciplinary context matters because these models have real-world consequences that extend far beyond a scoreboard or a spreadsheet.  
