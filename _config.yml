@@ -2,6 +2,9 @@ theme: minima
 title: Personal Portfolio
 description: Portfolio | 2026
 url: "https://hamptonabbott.com"
+# Extension-less canonical URLs (e.g. /projects/home-field-advantage/) so links,
+# canonical tags, and jekyll-seo-tag og:url all match.
+permalink: pretty
 twitter:
   card: summary_large_image
 # Default social-preview image applied to every page so jekyll-seo-tag
