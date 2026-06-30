@@ -10,6 +10,8 @@ Every March, 68 college basketball teams enter a tournament and millions of peop
 
 So I decided to ask a different question: **what does the data actually say about who wins — and can a machine learning model do better than conventional wisdom?**
 
+*For the full methodology, models, and evaluation, see the [technical report →](/projects/predicting-the-madness-report).*
+
 ---
 
 ## The Data
