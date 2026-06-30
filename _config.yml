@@ -11,10 +11,8 @@ defaults:
       path: ""
     values:
       image: /assets/images/og-preview.png
-header_pages:
-  - blog.md
-  - index.md
-  - projects.md
+# Nav is rendered by the local _includes/header.html (hardcoded links),
+# so minima's header_pages loop is no longer used.
 
 # Tailwind build sources (not part of the published site; assets/tailwind.css is the compiled output)
 exclude:

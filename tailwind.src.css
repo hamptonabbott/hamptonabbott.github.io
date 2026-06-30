@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ── Site custom classes (shared by homepage + subpage chrome) ── */
+body { font-family: 'Inter', system-ui, sans-serif; background: #ffffff; color: #37352f; }
+.hl:hover { background: #f1f0ef; }
+.ch { transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease; }
+.ch:hover { box-shadow: 0 14px 34px rgba(13,27,54,.12); transform: translateY(-4px); border-color: #cdd8e6; }
+/* short teal accent rule above section headings */
+.accent-rule { height: 4px; width: 40px; border-radius: 9999px; background: #0f7b6c; }
+.pill { display:inline-flex; align-items:center; gap:6px; border:1px solid #e3e2e0; border-radius:9999px; padding:6px 14px; font-size:13px; color:#37352f; text-decoration:none; background:#fff; transition:background .15s; }
+.pill:hover { background:#f1f0ef; }
+.tab-btn { padding:6px 14px; font-size:13px; font-weight:500; border-radius:6px; cursor:pointer; transition:background .15s, color .15s; color:#787774; }
+.tab-btn.active { background:#37352f; color:#fff; }
+.tab-panel { display:none; }
+.tab-panel.active { display:flex; }
+
+/* ── Prose fix ── Tailwind Preflight (loaded site-wide for the chrome) strips
+   list markers/indent. minima styles the rest of .post-content; re-add lists. */
+.post-content ul, .post-content ol { margin: 0 0 1rem; padding-left: 1.5rem; }
+.post-content ul { list-style: disc; }
+.post-content ol { list-style: decimal; }
+.post-content li { margin-bottom: .25rem; }
+
+/* Respect users who prefer reduced motion: neutralize hover transforms/transitions */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .ch:hover { transform: none !important; }
+  .group:hover img { transform: none !important; }
+}

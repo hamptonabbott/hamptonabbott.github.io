@@ -1,0 +1,25 @@
+<!-- Shared site nav (homepage + all subpages). Single source of truth. -->
+<nav class="sticky top-0 inset-x-0 z-50 bg-white/95 backdrop-blur border-b border-[#e3e2e0]">
+  <div class="max-w-5xl mx-auto px-5 h-12 flex items-center justify-between">
+    <a href="{{ '/' | relative_url }}" class="flex items-center gap-2 font-semibold text-sm text-[#37352f]">
+      <div class="w-6 h-6 bg-[#37352f] rounded-sm flex items-center justify-center text-white text-[11px] font-black select-none">H</div>
+      HP Abbott
+    </a>
+    <div class="hidden md:flex items-center gap-0.5 text-sm text-[#37352f]">
+      <a href="{{ '/' | relative_url }}" class="px-3 py-1 hl rounded transition-colors">Home</a>
+      <a href="{{ '/projects' | relative_url }}" class="px-3 py-1 hl rounded transition-colors">Projects</a>
+      <a href="{{ '/blog' | relative_url }}" class="px-3 py-1 hl rounded transition-colors">Writing</a>
+    </div>
+    <div class="flex items-center gap-2 text-sm">
+      <a href="{{ '/assets/Hampton_Abbott_Resume.pdf' | relative_url }}" target="_blank" rel="noopener"
+         class="hidden sm:inline-flex items-center gap-1.5 border border-[#e3e2e0] text-[#37352f] text-xs font-medium px-3 py-1.5 rounded-full hover:bg-[#f1f0ef] transition-colors">
+        <svg class="w-3.5 h-3.5 text-[#787774]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/></svg>
+        Résumé
+      </a>
+      <a href="mailto:abbott.hampton@gmail.com"
+         class="bg-[#0f7b6c] text-white text-xs font-semibold px-4 py-1.5 rounded-full hover:bg-[#0a6358] transition-colors">
+        Hire me
+      </a>
+    </div>
+  </div>
+</nav>
