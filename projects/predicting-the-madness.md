@@ -6,6 +6,8 @@ thumbnail: /assets/images/march-madness/thumbnail.jpg
 image: /assets/images/march-madness/og-wide.jpg
 thumbnail_alt: "An infographic illustration depicting NCAA March Madness basketball analytics and predictive data modeling with various charts and graphs."
 nav_exclude: true
+description: "Machine-learning NCAA bracket model: engineered team stats, four-model comparison, and 78% accuracy (46 of 59 games) on the unseen 2026 tournament."
+date: 2026-04-02
 ---
 Every March, 68 college basketball teams enter a tournament and millions of people fill out brackets convinced they've figured it out. Most of them haven't. Even the most informed fans rarely get more than 60% of games right.
 

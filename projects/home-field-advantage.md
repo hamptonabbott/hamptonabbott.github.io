@@ -4,6 +4,8 @@ title: "Home-Field Advantage"
 subtitle: "Is the NFL's home edge real — and is it fading?"
 thumbnail: /assets/images/home-field-advantage/thumbnail.jpg
 image: /assets/images/home-field-advantage/thumbnail.jpg
+description: "Exploratory analysis of 6,175 NFL games (2000–2023): home teams win 56.26% with a +2.23-point margin — and the edge has eroded steadily since 2000."
+date: 2026-02-11
 ---
 
 Ask any fan, broadcaster, or bettor and you'll hear the same thing: teams play better at home. The
