@@ -170,7 +170,7 @@ substantial heterogeneity, which is the variance the similarity-based models
 operate on. Weekday afternoons and evenings are dense; weekends and the
 late-night slot are sparse:
 
-![Cohort schedule heatmap. 31 students sorted by total availability (most-available rows at top). Saturday, Sunday, and Late Night are visibly sparser than weekdays and afternoon/evening slots.](https://raw.githubusercontent.com/HPAuncc/teammate-matcher/main/outputs/schedule_heatmap.png)
+![Cohort schedule heatmap. 31 students sorted by total availability (most-available rows at top). Saturday, Sunday, and Late Night are visibly sparser than weekdays and afternoon/evening slots.](https://raw.githubusercontent.com/hamptonabbott/teammate-matcher/main/outputs/schedule_heatmap.png)
 
 This descriptive view foreshadows the PCA finding in Section 6: day-of-week
 availability is the primary axis along which students differentiate.
@@ -402,7 +402,7 @@ the compatibility set; one model operates on the complementarity set. All
 four are evaluated on the same six metrics (Section 5), and the ranked
 configurations are passed to the instructor for final review:
 
-![End-to-end methodology diagram. Survey → Preprocessing → two feature sets → four models (K-Means, Agglomerative, Hungarian, GMM) → six evaluation metrics + PCA audit → instructor review. Hungarian and GMM are flagged as beyond-class methods.](https://raw.githubusercontent.com/HPAuncc/teammate-matcher/main/outputs/pipeline_diagram.png)
+![End-to-end methodology diagram. Survey → Preprocessing → two feature sets → four models (K-Means, Agglomerative, Hungarian, GMM) → six evaluation metrics + PCA audit → instructor review. Hungarian and GMM are flagged as beyond-class methods.](https://raw.githubusercontent.com/hamptonabbott/teammate-matcher/main/outputs/pipeline_diagram.png)
 
 ### 4.1 Why Four Models?
 
@@ -591,7 +591,7 @@ and full covariance matrices, GMM converges to extremely sharp posterior
 distributions. The maximum component probability is $\geq 0.999$ for every
 single student in the cohort:
 
-![GMM soft-assignment heatmap (31 × 8). Rows are students sorted by dominant component, columns are the 8 latent skill archetypes, color is posterior probability. Every student maps to exactly one archetype with probability ≈ 1.0; the off-diagonal entries are visually empty.](https://raw.githubusercontent.com/HPAuncc/teammate-matcher/main/outputs/gmm_ambiguity.png)
+![GMM soft-assignment heatmap (31 × 8). Rows are students sorted by dominant component, columns are the 8 latent skill archetypes, color is posterior probability. Every student maps to exactly one archetype with probability ≈ 1.0; the off-diagonal entries are visually empty.](https://raw.githubusercontent.com/hamptonabbott/teammate-matcher/main/outputs/gmm_ambiguity.png)
 
 | Quantity | Value |
 |---|---|
@@ -660,7 +660,7 @@ scale in mind). `random_state = 42` throughout.
 | **Hungarian Assignment** | 8 | **3–6** | 0.0430 | 1.7732 | 2.7089 | 0.2125 | 0.6069 | **7.875** |
 | GMM | 8 | 3–6 | **0.1502** | **1.3610** | **6.3377** | 0.1359 | 0.4845 | 6.75 |
 
-![Comparison of six evaluation metrics across all four models](https://raw.githubusercontent.com/HPAuncc/teammate-matcher/main/outputs/comparison_metrics.png)
+![Comparison of six evaluation metrics across all four models](https://raw.githubusercontent.com/hamptonabbott/teammate-matcher/main/outputs/comparison_metrics.png)
 
 Full CSV export: `outputs/evaluation_metrics.csv`. Per-model team rosters:
 `outputs/team_assignments/{model}_teams.csv`.
@@ -777,7 +777,7 @@ dominates student differentiation.
 
 ### 6.2 Biplot Interpretation
 
-![PCA biplot: 31 students in PC1–PC2 space, colored by Hungarian team. Top 8 feature loadings shown as red arrows](https://raw.githubusercontent.com/HPAuncc/teammate-matcher/main/outputs/pca_biplot.png)
+![PCA biplot: 31 students in PC1–PC2 space, colored by Hungarian team. Top 8 feature loadings shown as red arrows](https://raw.githubusercontent.com/hamptonabbott/teammate-matcher/main/outputs/pca_biplot.png)
 
 The biplot overlays the 8 strongest non-collinear loading vectors onto the
 student scatter, with students colored by Hungarian team assignment.
@@ -1170,7 +1170,7 @@ Claude (Anthropic) was used as a coding assistant throughout development.
 Full source code, preprocessing pipeline, model wrappers, evaluation
 metrics, Jupyter notebooks, and all generated figures are available at:
 
-> [**github.com/HPAuncc/teammate-matcher**](https://github.com/HPAuncc/teammate-matcher)
+> [**github.com/hamptonabbott/teammate-matcher**](https://github.com/hamptonabbott/teammate-matcher)
 
 ---
 

@@ -47,7 +47,7 @@ The third question is the most important one for understanding what the algorith
 
 The whole pipeline, end to end, looks like this:
 
-![Pipeline diagram showing the flow from survey to preprocessing to two feature sets (compatibility and complementarity) feeding four models (K-Means, Agglomerative, Hungarian, GMM) which produce six metrics that an instructor reviews to make the final team-assignment decision.](https://raw.githubusercontent.com/HPAuncc/teammate-matcher/main/outputs/pipeline_diagram.png)
+![Pipeline diagram showing the flow from survey to preprocessing to two feature sets (compatibility and complementarity) feeding four models (K-Means, Agglomerative, Hungarian, GMM) which produce six metrics that an instructor reviews to make the final team-assignment decision.](https://raw.githubusercontent.com/hamptonabbott/teammate-matcher/main/outputs/pipeline_diagram.png)
 
 We deployed an anonymous Google Forms survey to 31 students in a single section of DTSC 2302. The survey collected 35 items across five domains: schedule and availability, technical skills (8 dimensions, self-rated 1–5), work style, communication preferences, and a small self-assessment block. After preprocessing — checkbox expansion, ordinal encoding, one-hot encoding, Min-Max normalization, and a privacy-preserving row shuffle — we ended up with 50 features per student and zero missing values.
 
@@ -62,7 +62,7 @@ The first three models were applied to a *similarity* feature set (availability 
 
 We evaluated all four models on six metrics: three algorithmic (Silhouette Score, Davies–Bouldin, Calinski–Harabasz) that measure how cleanly clustered the partition is, and three domain-specific (intra-team skill variance, schedule overlap via Jaccard similarity, and skill coverage) that measure whether the resulting teams are actually deployable.
 
-![Side-by-side comparison of all four models on the six evaluation metrics. The Hungarian Algorithm row is highlighted as the recommended deployment model; bold green values mark the best score in each column. GMM wins all three algorithmic metrics (Silhouette, Davies-Bouldin, Calinski-Harabasz); K-Means wins Schedule Overlap; K-Means and Hungarian tie for the highest Skill Coverage at 7.875 / 8.](https://raw.githubusercontent.com/HPAuncc/teammate-matcher/main/outputs/poster_comparison_table.png)
+![Side-by-side comparison of all four models on the six evaluation metrics. The Hungarian Algorithm row is highlighted as the recommended deployment model; bold green values mark the best score in each column. GMM wins all three algorithmic metrics (Silhouette, Davies-Bouldin, Calinski-Harabasz); K-Means wins Schedule Overlap; K-Means and Hungarian tie for the highest Skill Coverage at 7.875 / 8.](https://raw.githubusercontent.com/hamptonabbott/teammate-matcher/main/outputs/poster_comparison_table.png)
 
 ---
 
@@ -74,13 +74,13 @@ Three findings stood out, and not all of them were the ones we expected.
 
 **2. Schedule, not skill, is what separates students.** Looking at the raw availability matrix gives the first hint:
 
-![Heatmap of the 31 students' availability across 7 days and 4 time-of-day slots. Students are sorted by total availability (most-available at top, least at bottom). Saturdays, Sundays, and Late Night are visibly sparser than weekdays and afternoons; the cohort is heavily concentrated in afternoon and evening windows.](https://raw.githubusercontent.com/HPAuncc/teammate-matcher/main/outputs/schedule_heatmap.png)
+![Heatmap of the 31 students' availability across 7 days and 4 time-of-day slots. Students are sorted by total availability (most-available at top, least at bottom). Saturdays, Sundays, and Late Night are visibly sparser than weekdays and afternoons; the cohort is heavily concentrated in afternoon and evening windows.](https://raw.githubusercontent.com/hamptonabbott/teammate-matcher/main/outputs/schedule_heatmap.png)
 
 The heatmap shows uneven availability: weekday afternoons and evenings are dense, weekends and late-night slots are sparse, and individual students vary widely in how many slots they can offer. That heterogeneity is exactly the signal a clustering algorithm can latch onto.
 
 When we ran Principal Component Analysis on the full feature set to formalize that intuition, the first principal component (15.8% of variance) was dominated by day-of-week availability — weekend, Tuesday, and Thursday loadings positive; Monday loading negative. The second component (13.5%) was conflict-handling and meeting-mode preferences. **Self-rated skill features did not appear in the top loadings until the third principal component.**
 
-![PCA biplot showing 31 students in PC1–PC2 space, colored by Hungarian team assignment. Top 8 feature loadings are shown as red arrows. PC1 is dominated by day-of-week availability; PC2 is dominated by conflict and meeting-mode preferences.](https://raw.githubusercontent.com/HPAuncc/teammate-matcher/main/outputs/pca_biplot.png)
+![PCA biplot showing 31 students in PC1–PC2 space, colored by Hungarian team assignment. Top 8 feature loadings are shown as red arrows. PC1 is dominated by day-of-week availability; PC2 is dominated by conflict and meeting-mode preferences.](https://raw.githubusercontent.com/hamptonabbott/teammate-matcher/main/outputs/pca_biplot.png)
 
 This is a pedagogically important finding. It means that within this cohort, students differentiate primarily on *when they can meet* and *how they handle conflict* — not on what they say they're good at. Skills, in self-report at least, are surprisingly homogeneous. That has direct consequences for any future deployment: an algorithm that spends its energy matching on skills will have very little signal to work with.
 
@@ -92,7 +92,7 @@ This was the most ethically significant finding in the project. GPA is a demogra
 
 In our cohort, **zero students were flagged.** Every single one of the 31 students locked tightly onto exactly one of the eight latent skill archetypes:
 
-![GMM soft-assignment heatmap. Each row is a student, each column is one of the 8 latent skill archetypes the model identified, and color intensity is the posterior probability that the student belongs to that archetype. Every student maps to exactly one archetype with probability ≈ 1.0 — there are no off-diagonal blends.](https://raw.githubusercontent.com/HPAuncc/teammate-matcher/main/outputs/gmm_ambiguity.png)
+![GMM soft-assignment heatmap. Each row is a student, each column is one of the 8 latent skill archetypes the model identified, and color intensity is the posterior probability that the student belongs to that archetype. Every student maps to exactly one archetype with probability ≈ 1.0 — there are no off-diagonal blends.](https://raw.githubusercontent.com/hamptonabbott/teammate-matcher/main/outputs/gmm_ambiguity.png)
 
 This is not a failure of the algorithm; it is a property of the data. With 31 students, 8 skill features, and 8 mixture components estimated with full covariance matrices, GMM has enough flexibility to fit each archetype tightly to its members. The ambiguity-flag mechanism still works as designed — it just had nothing to surface in this run. In a larger sample, or if we had restricted the covariance type to force softer assignments, we'd expect a meaningful number of borderline cases. The honest portfolio-post version of this finding is: *the capability is real, the result on this cohort was clean, and a future run on richer data is the test that would actually exercise it.*
 
@@ -154,8 +154,8 @@ Selbst, A. D., Boyd, D., Friedler, S. A., Venkatasubramanian, S., & Vertesi, J. 
 
 ### Tools and Acknowledgments
 
-Built in Python with scikit-learn (Pedregosa et al., 2011) for K-Means, Agglomerative, GMM, PCA, and evaluation metrics, and SciPy for the Hungarian Algorithm via `linear_sum_assignment`. Additional tools used: pandas, NumPy, matplotlib, and seaborn. Full source, preprocessing pipeline, model wrappers, evaluation code, and Jupyter notebooks are available at [github.com/HPAuncc/teammate-matcher](https://github.com/HPAuncc/teammate-matcher). Claude (Anthropic) was used as a coding assistant throughout development.
+Built in Python with scikit-learn (Pedregosa et al., 2011) for K-Means, Agglomerative, GMM, PCA, and evaluation metrics, and SciPy for the Hungarian Algorithm via `linear_sum_assignment`. Additional tools used: pandas, NumPy, matplotlib, and seaborn. Full source, preprocessing pipeline, model wrappers, evaluation code, and Jupyter notebooks are available at [github.com/hamptonabbott/teammate-matcher](https://github.com/hamptonabbott/teammate-matcher). Claude (Anthropic) was used as a coding assistant throughout development.
 
 *Special thanks to Aileen Benedict and Jordan Blekking (UNC Charlotte School of Data Science) for advising this project, and to the 31 anonymous DTSC 2302 students who took the survey.*
 
-**Full code:** [github.com/HPAuncc/teammate-matcher](https://github.com/HPAuncc/teammate-matcher)
+**Full code:** [github.com/hamptonabbott/teammate-matcher](https://github.com/hamptonabbott/teammate-matcher)

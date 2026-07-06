@@ -7,7 +7,7 @@ nav_exclude: true
 **Course:** DTSC 2302 — Project 2  
 **Author:** Hampton Abbott  
 **Date:** April 2026  
-**Repository:** [github.com/HPAuncc/predicting-the-madness](https://github.com/HPAuncc/predicting-the-madness)  
+**Repository:** [github.com/hamptonabbott/predicting-the-madness](https://github.com/hamptonabbott/predicting-the-madness)  
 **Companion piece:** [Predicting the Madness case study →](/projects/predicting-the-madness)
 
 ---
@@ -295,7 +295,7 @@ The full analysis is contained in a single Jupyter notebook (`notebooks/march_ma
 To reproduce:
 ```bash
 # 1. Clone the repo
-git clone https://github.com/HPAuncc/predicting-the-madness.git
+git clone https://github.com/hamptonabbott/predicting-the-madness.git
 
 # 2. Install dependencies
 pip install -r requirements.txt
