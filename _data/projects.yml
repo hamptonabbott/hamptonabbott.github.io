@@ -16,7 +16,7 @@
   thumbnail: /assets/images/teamora.png
   live: https://teamora.streamlit.app
   live_label: "Live demo ↗"
-  code: https://github.com/HPAuncc/teammate-matcher-app
+  code: https://github.com/HPAuncc/teamora
 
 - title: "Credit-Risk Default Prediction — Loan-Default Model & Dashboard"
   category: featured
