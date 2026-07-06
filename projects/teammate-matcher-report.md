@@ -3,6 +3,8 @@ layout: post
 title: "Teammate Matcher: Technical Report"
 subtitle: "Group Project Team Formation via Clustering & Optimization"
 nav_exclude: true
+description: "Technical report on ML-driven team formation: a 31-student survey, nine-step preprocessing pipeline, and four models compared across six quality metrics."
+date: 2026-05-04
 ---
 
 *Hampton Abbott & Carly Castillo — DTSC 2302, University of North Carolina at Charlotte*

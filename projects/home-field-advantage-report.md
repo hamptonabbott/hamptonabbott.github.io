@@ -2,6 +2,8 @@
 layout: post
 title: "Home-Field Advantage — Technical Report"
 subtitle: "Methods, data, and findings behind the NFL home-field analysis (2000–2023)"
+description: "Technical report behind the NFL home-field analysis: nflverse data sourcing, cleaning decisions, and trend tests across 6,175 games from 2000–2023."
+date: 2026-06-30
 ---
 
 **Course:** DTSC-2301 Data Science Foundations (UNC Charlotte)

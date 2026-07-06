@@ -3,6 +3,8 @@ layout: post
 title: "Predicting the Madness — Technical Report"
 subtitle: "Methods, models, and results behind the NCAA tournament predictor"
 nav_exclude: true
+description: "Technical report for the NCAA bracket model: Kaggle data pipeline, feature engineering, four-model evaluation by log loss, and 2026 tournament results."
+date: 2026-06-30
 ---
 **Course:** DTSC 2302 — Project 2  
 **Author:** Hampton Abbott  
