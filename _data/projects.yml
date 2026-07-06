@@ -44,6 +44,7 @@
   writeup: /projects/birds-of-a-feather
   report: /projects/teammate-matcher-report
   report_label: "Technical report →"
+  code: https://github.com/HPAuncc/teammate-matcher
 
 - title: "Predicting the Madness"
   category: case-study
@@ -56,6 +57,7 @@
   writeup: /projects/predicting-the-madness
   report: /projects/predicting-the-madness-report
   report_label: "Technical report →"
+  code: https://github.com/HPAuncc/predicting-the-madness
 
 - title: "Home-Field Advantage"
   category: case-study
