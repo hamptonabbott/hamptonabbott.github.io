@@ -3,6 +3,7 @@ layout: post
 title: "Birds of a Feather"
 subtitle: "Who Picks Your Team? Building a Fairer Way to Form Student Project Groups"
 thumbnail: /assets/images/birds-of-a-feather/thumbnail.jpg
+image: /assets/images/birds-of-a-feather/thumbnail.jpg
 thumbnail_alt: "An illustration of students connected by a network graph alongside a laptop showing clustering analysis, representing ML-powered academic team formation."
 nav_exclude: true
 ---

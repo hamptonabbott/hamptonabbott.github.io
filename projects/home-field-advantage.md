@@ -3,6 +3,7 @@ layout: post
 title: "Home-Field Advantage"
 subtitle: "Is the NFL's home edge real — and is it fading?"
 thumbnail: /assets/images/home-field-advantage/thumbnail.jpg
+image: /assets/images/home-field-advantage/thumbnail.jpg
 ---
 
 Ask any fan, broadcaster, or bettor and you'll hear the same thing: teams play better at home. The

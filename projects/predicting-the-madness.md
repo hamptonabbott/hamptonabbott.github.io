@@ -3,6 +3,7 @@ layout: post
 title: "Predicting the Madness"
 subtitle: "Can a Machine Actually Predict March Madness?"
 thumbnail: /assets/images/march-madness/thumbnail.jpg
+image: /assets/images/march-madness/og-wide.jpg
 thumbnail_alt: "An infographic illustration depicting NCAA March Madness basketball analytics and predictive data modeling with various charts and graphs."
 nav_exclude: true
 ---
