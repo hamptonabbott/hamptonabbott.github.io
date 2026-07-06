@@ -80,3 +80,5 @@ happened* toward *why*.
 ---
 
 *Full data sourcing, cleaning, and methodology: [Home-Field Advantage — Technical Report →](/projects/home-field-advantage-report)*
+
+**Full code:** [github.com/HPAuncc/home-field-advantage](https://github.com/HPAuncc/home-field-advantage)
