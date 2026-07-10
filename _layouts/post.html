@@ -20,9 +20,15 @@ layout: default
   {% if page.subtitle %}<p class="page-subtitle">{{ page.subtitle }}</p>{% endif %}
   {% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>{% endif %}
 
-  {% if page.thumbnail %}
+  {%- comment -%}
+    In-page hero: prefers page.hero_image (with page.hero_alt) when set;
+    falls back to page.thumbnail (the card image) so existing pages are unaffected.
+  {%- endcomment -%}
+  {% assign hero_src = page.hero_image | default: page.thumbnail %}
+  {% assign hero_alt = page.hero_alt | default: page.thumbnail_alt %}
+  {% if hero_src %}
   <div style="margin-top:1.25rem;margin-bottom:2rem;border-radius:10px;overflow:hidden;height:300px;">
-    <img src="{{ page.thumbnail | relative_url }}" alt="{{ page.thumbnail_alt }}" style="width:100%;height:100%;object-fit:cover;object-position:center 55%;display:block;">
+    <img src="{{ hero_src | relative_url }}" alt="{{ hero_alt }}" style="width:100%;height:100%;object-fit:cover;object-position:center 55%;display:block;">
   </div>
   {% endif %}
 

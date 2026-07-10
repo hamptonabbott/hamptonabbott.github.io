@@ -5,6 +5,8 @@ subtitle: "Who Picks Your Team? Building a Fairer Way to Form Student Project Gr
 thumbnail: /assets/images/birds-of-a-feather/thumbnail.jpg
 image: /assets/images/birds-of-a-feather/thumbnail.jpg
 thumbnail_alt: "An illustration of students connected by a network graph alongside a laptop showing clustering analysis, representing ML-powered academic team formation."
+hero_image: /assets/images/birds-of-a-feather/hero.svg
+hero_alt: "Abstract illustration of students clustered into balanced teams, shown as grouped nodes connected by lines."
 nav_exclude: true
 description: "The published research behind Teamora: clustering and Hungarian assignment build fairer student teams, audited for bias in self-reported skills and GPA."
 date: 2026-05-04
