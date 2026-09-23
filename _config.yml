@@ -13,7 +13,11 @@ defaults:
   - scope:
       path: ""
     values:
-      image: /assets/images/og-preview.png
+      image:
+        path: /assets/images/og-preview.png?v=2026-09
+        width: 1200
+        height: 630
+        alt: "Hampton P. Abbott — Data & Business Analytics · Sports Analytics · UNC Charlotte"
 # Nav is rendered by the local _includes/header.html (hardcoded links),
 # so minima's header_pages loop is no longer used.
 
